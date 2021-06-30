@@ -1,0 +1,52 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+Donate
+{% endblock %}
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    body {
+  background-color: rgb(227, 184, 247);
+    }
+
+    h1 {
+        color: #0f0a0a;
+        font-family: Helvetica, 'Open Sans', Arial, sans-serif;
+        font-size: 49px;
+        font-weight: bold;
+    }
+    th{
+        color: #fdf9f9;
+        font-family: Helvetica, 'Open Sans', Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+    <div class="row justify-content-center">
+    <h1 class="h1">DONATE </h1>
+    </div>
+    <div class="w3-container" id="content" name="content">
+        <table class=" w3-table-all w3-hoverable" border="3" , width = 900px>
+                <tr style="background-color:#0c3829">
+                    <th scope="col">Name</th>
+                    <th scope="col" >Gender</th>
+                    <th scope="col">Blood Type</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Hospital</th>
+                    <th scope="col">Address</th>
+                </tr>
+            {% for i in dt %}
+            <tr class="w3-hover-blue">
+                <td>{{i.name}}</td>
+                <td>{{i.gender}}</td>
+                <td>{{i.blood_type}}</td>
+                <td>{{i.mobile}} </td>
+                <td>{{i.hospital}} </td>
+                <td>{{i.address}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

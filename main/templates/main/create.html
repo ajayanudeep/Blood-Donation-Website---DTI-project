@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}
+{% block title %}
+Add New Requirement
+{% endblock %}
+{% block content %}
+<style>
+     body {
+  background-color:rgb(227, 184, 247);
+    }
+    h1 {
+        color: #110f0f;
+        font-family: Helvetica, 'Open Sans', Arial, sans-serif;
+        font-size: 39px;
+        font-weight: bold;
+    }
+</style>
+<h1 class="mt-2">ADD NEW REQUIREMENT</h1>
+<div class="form-group">
+    <table>
+        <form method="post" action="/display/">
+            {% csrf_token %}
+                {{form.as_p}}
+                <div class="input-group-prepend">
+                    <button type="submit",name="save" class="btn btn-success">Add New</button>
+                </div>
+        </form>
+    </table>
+</div>
+{% endblock %}
