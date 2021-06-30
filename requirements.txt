@@ -35,7 +35,6 @@ easy-thumbnails==2.7.1
 entrypoints==0.3
 filelock==3.0.12
 gunicorn==20.1.0
-hidpidaemon==18.4.6
 httplib2==0.14.0
 icalendar==4.0.7
 idna==2.8
