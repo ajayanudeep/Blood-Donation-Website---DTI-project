@@ -6,7 +6,6 @@ autopep8==1.5.7
 Babel==2.9.1
 bleach==3.3.0
 blinker==1.4
-Brlapi==0.7.0
 certifi==2019.11.28
 chardet==3.0.4
 chrome-gnome-shell==0.0.0
