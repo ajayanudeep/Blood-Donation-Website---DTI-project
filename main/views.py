@@ -14,10 +14,7 @@ def home(response):
 
 def display(response):
     dt = details.objects.all()
-    if User.is_authenticated:
-        return render(response, "main/display.html", {"dt": dt})
-    else:
-        return redirect(response, "main/login.html")
+    return render(response, "main/display.html", {"dt": dt})
 
 
 def create(response):
