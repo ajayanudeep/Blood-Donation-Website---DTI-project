@@ -17,7 +17,7 @@ Add New Requirement
 <h1 class="mt-2">ADD NEW REQUIREMENT</h1>
 <div class="form-group">
     <table>
-        <form method="post" action="/display/">
+        <form method="post" action="/create/">
             {% csrf_token %}
                 {{form.as_p}}
                 <div class="input-group-prepend">
