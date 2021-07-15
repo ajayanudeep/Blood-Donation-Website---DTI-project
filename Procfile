@@ -1,3 +1,3 @@
-gunicorn projectname.wsgi:application --log-file - --log-level debug
+gunicorn dti.wsgi:application --log-file - --log-level debug
 
 
