@@ -1,2 +1,1 @@
-web: gunicorn dti.wsgi 
-gunicorn core.wsgi --log-file=-
+web: gunicorn core.wsgi --log-file=-
