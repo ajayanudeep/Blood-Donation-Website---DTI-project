@@ -311,6 +311,11 @@
             <a class="wp-block-button__link has-background-color has-text-color" href="login/" rel="noreferrer noopener">POST</a>
             {% endif %}
         </div>
+        <div class="wp-block-button is-style-outline">
+            {% if user.is_authenticated %}
+            <a class="wp-block-button__link has-background-color has-text-color" href="myposts/" rel="noreferrer noopener">My Posts</a>
+            {% endif %}
+        </div>
         <h1><strong><em>DONATE</em></strong></h1>
         <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-background-color has-text-color" href="display/" rel="noreferrer noopener">DONATE</a></div>
 
