@@ -37,7 +37,7 @@ def display(request):
         if distance.distance(t,loc_req).km<5:    
             loc_dict[i.id]=distance.distance(t,loc_req).km
     print(loc_dict)
-    return render(request, "main/display.html", {"dt": dt,"loc_dict":loc_dict})
+    return render(request, "main/display.html", {"dt": dt,"loc_dict":loc_dict,})
 
 def myposts(response):
     dt = details.objects.all()
