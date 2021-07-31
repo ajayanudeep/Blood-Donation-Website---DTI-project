@@ -5,24 +5,108 @@ Add New Requirement
 {% block content %}
 <style>
      body {
-  background-color:rgb(227, 184, 247);
+		background: radial-gradient(#e5f8f7, hsl(195, 21%, 93%));
     }
-    h1 {
-        color: #110f0f;
-        font-family: Helvetica, 'Open Sans', Arial, sans-serif;
-        font-size: 39px;
-        font-weight: bold;
+    .button
+    {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #0C5;
+
+    font-size: 24px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 300;
+    
+    margin: 1em auto;
+    padding: 20px;
+    width: 200px;
+    height:70px;
+
+    background: radial-gradient(#5bc531, #2ee273);
+    border: 1px solid #0D6;
+    color: rgb(244, 248, 242);
+    
+    transition: all 0.5s;
+    }
+
+    .button:hover, .button:active 
+    {
+    text-decoration: none;
+    color: rgb(237, 241, 239);
+    border-color: rgb(248, 250, 249);
+    background: radial-gradient(#5bc531, #2ee273);
+    }
+
+    .button span 
+    {
+    display: inline-block;
+    position: relative;
+    padding-right: 0;
+    
+    transition: padding-right 0.5s;
+    }
+
+    .button span:after 
+    {
+    content: ' ';  
+    position: absolute;
+    top: 0;
+    right: -18px;
+    opacity: 0;
+    width: 10px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0);
+    border: 3px solid #FFF;
+    border-top: none;
+    border-right: none;
+
+    transition: opacity 0.5s, top 0.5s, right 0.5s;
+    transform: rotate(-45deg);
+    }
+
+    .button:hover span, .button:active span 
+    {
+    padding-right: 30px;
+    }
+
+    .button:hover span:after, .button:active span:after 
+    {
+    transition: opacity 0.5s, top 0.5s, right 0.5s;
+    opacity: 1;
+    border-color: rgb(241, 245, 243);
+    right: 0;
+    top: 50%;
+    }
+    .headi{
+        padding-left: 140px;
+		color: rgb(19, 18, 18);
+		font-size: 3em;
+		font-weight: bold;
+		font-family: Helvetica;
+		text-shadow: 
+			0 1px 0 #ccc, 
+			0 2px 0 #c9c9c9, 
+			0 3px 0 #bbb, 
+			0 4px 0 #b9b9b9, 
+			0 5px 0 #aaa, 
+			0 6px 1px rgba(0,0,0,.1), 
+			0 0 5px rgba(0,0,0,.1), 
+			0 1px 3px rgba(0,0,0,.3), 
+			0 3px 5px rgba(0,0,0,.2), 
+			0 5px 10px rgba(0,0,0,.25), 
+			0 10px 10px rgba(0,0,0,.2), 
+			0 20px 20px rgba(0,0,0,.15);
+		text-align:center;
     }
 </style>
-<h1 class="mt-2">ADD NEW REQUIREMENT</h1>
+<h1 class="headi">ADD NEW REQUIREMENT</h1>
 <div class="form-group">
     <table>
-        <form method="post" action="/create/">
+        <form method="post" action="/create/" class="forms">
             {% csrf_token %}
                 {{form.as_p}}
-                <div class="input-group-prepend">
-                    <button type="submit",name="save" class="btn btn-success">Add New</button>
-                </div>
+                <button type="submit",name="save" class="button" ><span>Add New</span></button>
         </form>
     </table>
 </div>

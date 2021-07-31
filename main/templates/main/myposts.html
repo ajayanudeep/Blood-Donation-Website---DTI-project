@@ -4,14 +4,123 @@
 Donate
 {% endblock %}
 {% block content %}
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-    body {
-  background-color: rgb(227, 184, 247);
-    }
+	div.a {
+	  text-transform: uppercase;
+	  color: rgb(255, 250, 250);
+		font-size: 1em;
+		font-weight: bold;
+		font-family: Helvetica;
+	}
+      *{
+  		padding: 0;
+  		margin: 0;
+  		box-sizing: border-box;
+	}
+	body {
+		background: radial-gradient(#e5f8f7, hsl(195, 21%, 93%));
+	}
+	p{
+		color: rgb(255, 250, 250);
+		font-size: 1em;
+		font-weight: bold;
+		font-family: Helvetica;
+		text-shadow:  
+			0 6px 1px rgba(0,0,0,.1), 
+			0 0 5px rgba(0,0,0,.1), 
+			0 1px 3px rgba(0,0,0,.3), 
+			0 3px 5px rgba(0,0,0,.2), 
+			0 5px 10px rgba(0,0,0,.25), 
+			0 10px 10px rgba(0,0,0,.2), 
+			0 20px 20px rgba(0,0,0,.15);
+		text-align:left;
+	}
+	.site-title{
+		padding-left: 140px;
+		color: rgb(19, 18, 18);
+		font-size: 4em;
+		font-weight: bold;
+		font-family: Helvetica;
+		text-shadow: 
+			0 1px 0 #ccc, 
+			0 2px 0 #c9c9c9, 
+			0 3px 0 #bbb, 
+			0 4px 0 #b9b9b9, 
+			0 5px 0 #aaa, 
+			0 6px 1px rgba(0,0,0,.1), 
+			0 0 5px rgba(0,0,0,.1), 
+			0 1px 3px rgba(0,0,0,.3), 
+			0 3px 5px rgba(0,0,0,.2), 
+			0 5px 10px rgba(0,0,0,.25), 
+			0 10px 10px rgba(0,0,0,.2), 
+			0 20px 20px rgba(0,0,0,.15);
+		text-align:center;
+	}
+	.container {
+  	width: 90%;
+  	margin: 50px auto;
+	}
+	.heading {
+  	text-align: center;
+  	font-size: 30px;
+  	margin-bottom: 50px;
+	}
+	.row {
+	  display: flex;
+  	flex-direction: row;
+  	justify-content: space-around;
+  	flex-flow: wrap;
+	}
+	.card {
+	  display: grid;
+	  grid-template-columns: 300px;
+	  grid-template-rows: 120px 280px;
+	  border-radius: 18px;
+	  box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+	  background: radial-gradient(#60efbc, #58d5c9);
+	  font-family: roboto;
+	  text-align: center;
+	  transition: 0.5s ease;
+	  cursor: pointer;
+	  margin:30px;
+	  margin-left:180px;
+	}
+	.card-header{
+		background: radial-gradient(#60efbc, #58d5c9);
+	}
+	.card-body{
+		background: #242625;
+	}
+	.card:hover {
+	  transform: scale(1.15);
+	  box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+	}
+	@media screen and (max-width: 1000px) {
+  	.card {
+    	width: 40%;
+  	}
+	}
+	@media screen and (max-width: 620px) {
+  		.container {
+    			width: 100%;
+  		}
+  		.heading {
+    			padding: 20px;
+    			font-size: 20px;
+  		}
+  		.card {
+    		width: 80%;
+  		}
+	}
 
     h1 {
+        color: #0f0a0a;
+        font-family: Helvetica, 'Open Sans', Arial, sans-serif;
+        font-size: 49px;
+        font-weight: bold;
+    }
+    h2 {
         color: #0f0a0a;
         font-family: Helvetica, 'Open Sans', Arial, sans-serif;
         font-size: 49px;
@@ -24,31 +133,24 @@ Donate
         font-weight: bold;
     }
 </style>
-    <div class="row justify-content-center">
-    <h1 class="h1">DONATE </h1>
-    </div>
-    <div class="w3-container" id="content" name="content">
-        <table class=" w3-table-all w3-hoverable" border="3" , width = 900px>
-                <tr style="background-color:#0c3829">
-                    <th scope="col">Name</th>
-                    <th scope="col" >Gender</th>
-                    <th scope="col">Blood Type</th>
-                    <th scope="col">Mobile</th>
-                    <th scope="col">Hospital</th>
-                    <th scope="col">Address</th>
-                </tr>
-            {% for i in dt %}
-                {% if user.id == i.user.id %}
-                    <tr class="w3-hover-blue">
-                        <td>{{i.name}}</td>
-                        <td>{{i.gender}}</td>
-                        <td>{{i.blood_type}}</td>
-                        <td>{{i.mobile}} </td>
-                        <td>{{i.hospital}} </td>
-                        <td>{{i.address}}</td>
-                    </tr>
-                {% endif %}
-            {% endfor %}
-        </table>
-    </div>
+	    <h1 class="site-title">Your Posts</h1>
+	<div class="container">
+ 	   	<div class="row">
+ 	   {% for i in dt %}
+        {% if user.id == i.user.id %}
+            <div class="card">
+       				<div class="card-header" ><div class="a"><h2>{{i.blood_type}}</h2></div></div>
+		        	<div class="card-body">
+			        	<p>Name : {{i.name}}</p>
+        				<p>Gender : {{i.gender}}</p>
+        				<p>Mobile : {{i.mobile}}</p>
+        				<p>Hospital : {{i.hospital}}</p>
+        				<p>Address : {{i.address}}</p>
+		        	</div>
+        	        </div>
+ 	   	{% endif %}
+ 	   {% endfor %}
+        </div>
+      </div>
+</body>
 {% endblock %}
